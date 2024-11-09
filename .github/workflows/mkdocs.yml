@@ -48,6 +48,8 @@ jobs:
           MKDOCS_TEMP: toto
         run: |
           mkdocs --version
+          mkdocs build
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
