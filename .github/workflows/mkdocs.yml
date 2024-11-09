@@ -54,6 +54,9 @@ jobs:
         env:
           MKDOCS_TEMP: toto
         run: |
+          mkdir tmp/
+          curl -L http://repo.orix.oric.org/dists/2024.4/tgz/6502/ch395lib.tgz | tar -xz -C tmp/
+          ls -l tmp/
           mkdocs --version
           mkdocs build
           
