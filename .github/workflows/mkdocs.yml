@@ -8,6 +8,13 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version de la documentation à déployer'
+        required: true
+      pck_name:
+        description: 'pck'
+        required: true
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
