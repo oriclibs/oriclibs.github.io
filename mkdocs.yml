@@ -1,13 +1,8 @@
 site_name: Oric libs
 
 theme:
-    palette:
-        primary: black
-        scheme: default
-    features:
-        - navigation.tabs
-        - navigation.top
-        - content.tabs.link
+    name: mkdocs
+
 
 nav:
     - Home:
