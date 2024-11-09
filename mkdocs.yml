@@ -3,6 +3,8 @@ site_name: Oric libs
 theme:
     name: mkdocs
 
+site_dir: public
+
 
 nav:
     - Home:
