@@ -52,11 +52,12 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Build with mkdocs
         env:
-          MKDOCS_TEMP: toto
+          VERSION: ${{ github.event.inputs.version }}
+          PCK_NAME: ${{ github.event.inputs.pck_name }}
         run: |
           mkdir tmp/
-          echo http://repo.orix.oric.org/dists/${version}/tgz/6502/${pck_name}.tgz
-          curl -L http://repo.orix.oric.org/dists/${version}/tgz/6502/${pck_name}.tgz | tar -xz -C tmp/
+          echo http://repo.orix.oric.org/dists/${VERSION}/tgz/6502/${PCK_NAME}.tgz
+          curl -L http://repo.orix.oric.org/dists/${VERSION}/tgz/6502/${PCK_NAME}.tgz | tar -xz -C tmp/
           cp tmp/usr/share/${pck_name}/${version}/README.md docs/${pck_name}/${version}/index.md
           ls -l tmp/
           mkdocs --version
