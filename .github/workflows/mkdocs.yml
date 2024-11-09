@@ -55,7 +55,8 @@ jobs:
           MKDOCS_TEMP: toto
         run: |
           mkdir tmp/
-          curl -L http://repo.orix.oric.org/dists/2024.4/tgz/6502/ch395lib.tgz | tar -xz -C tmp/
+          curl -L http://repo.orix.oric.org/dists/${version}/tgz/6502/${pck_name}.tgz | tar -xz -C tmp/
+          cp tmp/usr/share/${pck_name}/${version}/README.md docs/${pck_name}/${version}/index.md
           ls -l tmp/
           mkdocs --version
           mkdocs build
