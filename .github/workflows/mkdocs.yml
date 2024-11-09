@@ -40,7 +40,7 @@ jobs:
     env:
       HUGO_VERSION: 0.128.0
     steps:
-      - name: Install Hugo CLI
+      - name: Install mkdocs
         run: |
           pip install mkdocs
       - name: Checkout
@@ -55,6 +55,7 @@ jobs:
           MKDOCS_TEMP: toto
         run: |
           mkdir tmp/
+          echo http://repo.orix.oric.org/dists/${version}/tgz/6502/${pck_name}.tgz
           curl -L http://repo.orix.oric.org/dists/${version}/tgz/6502/${pck_name}.tgz | tar -xz -C tmp/
           cp tmp/usr/share/${pck_name}/${version}/README.md docs/${pck_name}/${version}/index.md
           ls -l tmp/
