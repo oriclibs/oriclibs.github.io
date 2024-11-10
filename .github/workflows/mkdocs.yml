@@ -55,10 +55,11 @@ jobs:
           VERSION: ${{ github.event.inputs.version }}
           PCK_NAME: ${{ github.event.inputs.pck_name }}
         run: |
+          name_nolib=$(echo "${PCK_NAME}" | sed 's/lib$//')
           mkdir tmp/
           echo http://repo.orix.oric.org/dists/${VERSION}/tgz/6502/${PCK_NAME}.tgz
           curl -L http://repo.orix.oric.org/dists/${VERSION}/tgz/6502/${PCK_NAME}.tgz | tar -xz -C tmp/
-          cp tmp/usr/share/${pck_name}/${version}/README.md docs/${pck_name}/${version}/index.md
+          cp tmp/usr/share/${name_nolib}/${VERSION}/README.md docs/${name_nolib}/${VERSION}/index.md
           ls -l tmp/
           mkdocs --version
           mkdocs build
