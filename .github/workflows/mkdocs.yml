@@ -43,6 +43,7 @@ jobs:
       - name: Install mkdocs
         run: |
           pip install mkdocs
+          pip install mkdocs-material
       - name: Checkout
         uses: actions/checkout@v4
         with:
