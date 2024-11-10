@@ -3,6 +3,10 @@ site_name: Oric libs
 theme:
     name: material
     custom_dir: docs/theme
+    features:
+      - search.suggest
+      - search
+      - search.highlight
 extra_css:
     - css/custom.css
 site_dir: public
