@@ -1,7 +1,7 @@
 site_name: Oric libs
 
 theme:
-    name: mkdocs
+    name: material
 
 site_dir: public
 
