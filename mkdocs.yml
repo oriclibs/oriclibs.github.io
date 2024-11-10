@@ -2,9 +2,9 @@ site_name: Oric libs
 
 theme:
     name: material
-  custom_dir: docs/theme
+    custom_dir: docs/theme
 extra_css:
-  - css/custom.css
+    - css/custom.css
 site_dir: public
 
 
