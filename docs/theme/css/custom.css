@@ -1,0 +1,16 @@
+.md-header__search {
+    margin: 0 auto; /* Centre horizontalement la barre de recherche */
+}
+
+.md-header__search input {
+    text-align: center; /* Centre le texte dans la barre de recherche */
+}
+
+@media (max-width: 768px) {
+    /* Ajustement pour les écrans plus petits */
+    .md-header__title,
+    .md-header__search {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
