@@ -13,7 +13,7 @@ site_dir: public
 
 
 nav:
-    - Home:
-        - Introduction: index.md
+    - Homepage: index.md
+
 
 
