@@ -62,7 +62,7 @@ jobs:
           curl -L http://repo.orix.oric.org/dists/${VERSION}/tgz/6502/${PCK_NAME}.tgz | tar -xz -C tmp/
           mkdir -p docs/${name_nolib}/${VERSION}/
           cp tmp/usr/share/${name_nolib}/${VERSION}/README.md docs/${name_nolib}/${VERSION}/index.md
-         # echo "        - ${PCK_NAME}: ${name_nolib}/${VERSION}/index.md" >> mkdocs.yml
+          # echo "        - ${PCK_NAME}: ${name_nolib}/${VERSION}/index.md" >> mkdocs.yml
           ls -l tmp/
           mkdocs --version
           mkdocs build
