@@ -40,11 +40,10 @@ def add_indent_and_prefix(name, version, output_file):
                 body = body + f"    {line}"
         body = body + all_dependencies
         #body = body + f"=== \"Dependencies\"\n"
-        metadata = f"<h1>Metadata</h1>\n8 days ago\nv1.61.0\nMIT OR Apache-2.0\n272 KiB\nInstall\nRun the following Cargo command in your project directory:\ncargo add syn\nOr add the following line to your Cargo.toml:\nsyn = \"2.0.87\"\nDocumentation\nfixme\nRepository\nFIXME\nOwners\FIXME\nFIXME\nCategories\nFIXME\nFIXME\n"
+        metadata = f"<h1>Metadata</h1>\n* 8 days ago\n * v1.61.0\n* MIT OR Apache-2.0\n* 272 KiB\n* Install\n* Run the following Cargo command in your project directory:\n * cargo add {name}\nOr add the following line to your Cargo.toml:\nver = \"{version}\"\n* Documentation\nfixme\nRepository\nFIXME\nOwners\FIXME\nFIXME\nCategories\nFIXME\nFIXME\n"
 
         outfile.write(f"#<div class=\"main-content\"><div class=\"content-left\">{body}</div>\n<div class=\"content-right\">{metadata}\n</div>\n</div>\n")
 
-          #cp tmp/usr/share/${name_nolib}/${VERSION}/README.md docs/${name_nolib}/${VERSION}/index.md
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         name = sys.argv[1]
