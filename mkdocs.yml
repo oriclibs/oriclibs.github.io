@@ -7,6 +7,14 @@ theme:
       - search.suggest
       - search
       - search.highlight
+      - content.tabs.link
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+
 extra_css:
     - css/custom.css
 site_dir: public
