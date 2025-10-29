@@ -46,6 +46,8 @@ def add_indent_and_prefix(name, version, output_file):
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
+        print(sys.argv[1])
+        print(sys.argv[2])
         name = sys.argv[1]
         version = sys.argv[2]
         add_indent_and_prefix(sys.argv[1], sys.argv[2], f"docs/{name}/{version}/index.md")
