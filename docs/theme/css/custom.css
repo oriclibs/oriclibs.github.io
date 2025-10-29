@@ -31,3 +31,8 @@
     background-color: #f5f5f5; /* Optionnel : couleur de fond pour la colonne droite */
     border-left: 1px solid #ddd; /* Optionnel : bordure entre les colonnes */
 }
+
+.md-sidebar__title {
+    display: none;
+}
+

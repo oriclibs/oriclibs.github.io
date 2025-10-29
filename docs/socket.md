@@ -16,16 +16,16 @@
 === "Dependencies"
     inet 2024.4    ch395 2024.4</div>
 <div class="content-right"><h1>Metadata</h1>
-* 8 days ago
- * v1.61.0
-* MIT OR Apache-2.0
-* 272 KiB
-* Install
-* Run the following Cargo command in your project directory:
- * cargo add socket
+8 days ago
+v1.61.0
+MIT OR Apache-2.0
+272 KiB
+Install
+Run the following Cargo command in your project directory:
+cargo add syn
 Or add the following line to your Cargo.toml:
-ver = "2024.4"
-* Documentation
+syn = "2.0.87"
+Documentation
 fixme
 Repository
 FIXME
