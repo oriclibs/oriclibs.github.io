@@ -62,7 +62,7 @@ jobs:
           pip install toml
           pip install requests
           pip install GitPython
-          python3 parse.py ${name_nolib} ${VERSION}
+          python3 parse.py ${PCK_NAME} ${VERSION}
           mkdocs --version
           mkdocs build
 
