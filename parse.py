@@ -2,7 +2,21 @@
 
 import sys
 import toml
+import requests
+import os
+from git import Repo
 
+def download_file(url, save_path):
+    # Envoie une requête GET avec redirection automatique (comme -L dans curl)
+    response = requests.get(url, allow_redirects=True)
+    # Vérifie si la requête a réussi
+    if response.status_code == 200:
+        # Écrit le contenu dans un fichier
+        with open(save_path, 'wb') as f:
+            f.write(response.content)
+        print(f"Fichier téléchargé et enregistré sous {save_path}")
+    else:
+        print(f"Erreur lors du téléchargement : {response.status_code}")
 
 def read_local_config_file(bpm_path):
     try:
@@ -52,9 +66,14 @@ if __name__ == "__main__":
         version = sys.argv[2]
         # name_nolib=$(echo "${PCK_NAME}" | sed 's/lib$//')
         # mkdir tmp/
-        # echo http://repo.orix.oric.org/dists/${VERSION}/tgz/6502/${PCK_NAME}.tgz
+        print(f"http://repo.orix.oric.org/dists/{version}/tgz/6502/{name}.tgz")
         # curl -L http://repo.orix.oric.org/dists/${VERSION}/tgz/6502/${PCK_NAME}.tgz | tar -xz -C tmp/
         #     # mkdir -p docs/${name_nolib}/${VERSION}/
-        add_indent_and_prefix(sys.argv[1], sys.argv[2], f"docs/{name}/{version}/index.md")
+        url = f"http://repo.orix.oric.org/dists/{VERSION}/tgz/6502/{name}.tgz"
+        save_path = f"{name}.tgz"  # Nom du fichier local
+
+        download_file(url, save_path)
+        repo = Repo('.')
+        add_indent_and_prefix(name, version, f"docs/{name}/{version}/index.md")
     else:
         print("Please provide a filename as an argument.")

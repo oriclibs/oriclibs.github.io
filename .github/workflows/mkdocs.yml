@@ -34,6 +34,8 @@ defaults:
     shell: bash
 
 jobs:
+
+
   # Build job
   build:
     runs-on: ubuntu-latest
@@ -56,11 +58,11 @@ jobs:
           VERSION: ${{ github.event.inputs.version }}
           PCK_NAME: ${{ github.event.inputs.pck_name }}
         run: |
+          ls -l
           pip install toml
+          pip install requests
+          pip install GitPython
           python3 parse.py ${name_nolib} ${VERSION}
-          #cp tmp/usr/share/${name_nolib}/${VERSION}/README.md docs/${name_nolib}/${VERSION}/index.md
-          # echo "        - ${PCK_NAME}: ${name_nolib}/${VERSION}/index.md" >> mkdocs.yml
-          ls -l tmp/
           mkdocs --version
           mkdocs build
 
