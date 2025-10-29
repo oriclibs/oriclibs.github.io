@@ -56,11 +56,16 @@ jobs:
           VERSION: ${{ github.event.inputs.version }}
           PCK_NAME: ${{ github.event.inputs.pck_name }}
         run: |
-          name_nolib=$(echo "${PCK_NAME}" | sed 's/lib$//')
-          mkdir tmp/
-          echo http://repo.orix.oric.org/dists/${VERSION}/tgz/6502/${PCK_NAME}.tgz
-          curl -L http://repo.orix.oric.org/dists/${VERSION}/tgz/6502/${PCK_NAME}.tgz | tar -xz -C tmp/
-          mkdir -p docs/${name_nolib}/${VERSION}/
+          if [ -z "${PCK_NAME}" ]; then
+            echo "est_vide=true" >> $GITHUB_OUTPUT
+          else
+            name_nolib=$(echo "${PCK_NAME}" | sed 's/lib$//')
+            mkdir tmp/
+            echo http://repo.orix.oric.org/dists/${VERSION}/tgz/6502/${PCK_NAME}.tgz
+            curl -L http://repo.orix.oric.org/dists/${VERSION}/tgz/6502/${PCK_NAME}.tgz | tar -xz -C tmp/
+            mkdir -p docs/${name_nolib}/${VERSION}/
+          fi
+
           pip install toml
           python3 parse.py ${name_nolib} ${VERSION}
           #cp tmp/usr/share/${name_nolib}/${VERSION}/README.md docs/${name_nolib}/${VERSION}/index.md
