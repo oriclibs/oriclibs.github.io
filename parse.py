@@ -50,6 +50,11 @@ if __name__ == "__main__":
         print(sys.argv[2])
         name = sys.argv[1]
         version = sys.argv[2]
+        # name_nolib=$(echo "${PCK_NAME}" | sed 's/lib$//')
+        # mkdir tmp/
+        # echo http://repo.orix.oric.org/dists/${VERSION}/tgz/6502/${PCK_NAME}.tgz
+        # curl -L http://repo.orix.oric.org/dists/${VERSION}/tgz/6502/${PCK_NAME}.tgz | tar -xz -C tmp/
+        #     # mkdir -p docs/${name_nolib}/${VERSION}/
         add_indent_and_prefix(sys.argv[1], sys.argv[2], f"docs/{name}/{version}/index.md")
     else:
         print("Please provide a filename as an argument.")
