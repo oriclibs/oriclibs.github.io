@@ -50,7 +50,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          token: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
+          GIT_TOKEN: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -74,7 +74,8 @@ jobs:
           git config --global user.name "jede"
           git add .
           git commit -m "Mise à jour automatique via GitHub Actions"
-          git push
+          git push https://x-access-token:${GIT_TOKEN}@github.com//oriclibs/oriclibs.github.io.git
+
 
 
       - name: Upload artifact
