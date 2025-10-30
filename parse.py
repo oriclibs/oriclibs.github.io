@@ -37,6 +37,7 @@ def generate_index():
     index += "</div>"
     with open("docs/index.md", "w") as fichier:
         fichier.write(index)
+    print(index)
 
 
 def detar_gz(fichier_tgz, repertoire_destination):
