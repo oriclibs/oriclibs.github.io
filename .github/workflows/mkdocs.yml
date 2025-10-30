@@ -66,6 +66,13 @@ jobs:
           mkdocs --version
           mkdocs build
 
+      - name: Commit and Push
+        run: |
+          git add .
+          git commit -m "Mise à jour automatique via GitHub Actions"
+          git push
+
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

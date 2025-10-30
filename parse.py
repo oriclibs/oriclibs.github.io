@@ -134,7 +134,7 @@ if __name__ == "__main__":
         name = sys.argv[1]
         version = sys.argv[2]
         skip_download = "False"
-        skip_repo_add = "False"
+        skip_repo_add = "True"
         if sys.argv == 3:
             skip_download = sys.argv[3]
         if sys.argv == 4:
