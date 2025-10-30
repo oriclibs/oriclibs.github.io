@@ -166,7 +166,7 @@ if __name__ == "__main__":
             origin = repo.remote(name="origin")
             origin.push("main")
 
-
+        os.makedirs(f"docs/{name}/{version}", exist_ok=True)
         add_indent_and_prefix(name, version, f"docs/{name}/{version}/index.md")
         if skip_repo_add == "False":
             repo = Repo('.')
