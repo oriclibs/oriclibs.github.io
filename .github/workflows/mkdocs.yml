@@ -68,6 +68,8 @@ jobs:
           mkdocs build
 
       - name: Commit and Push
+        env:
+          GIT_TOKEN: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
         run: |
           ls -l
           git config --global user.email "jede@me.me"
