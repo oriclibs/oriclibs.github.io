@@ -68,6 +68,8 @@ jobs:
 
       - name: Commit and Push
         run: |
+          git config --global user.email "jede@me.me"
+          git config --global user.name "jede"
           git add .
           git commit -m "Mise à jour automatique via GitHub Actions"
           git push
