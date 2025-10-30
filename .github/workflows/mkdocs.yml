@@ -74,6 +74,7 @@ jobs:
           git config --global user.name "jede"
           git add .
           git commit -m "Mise à jour automatique via GitHub Actions"
+          echo ${GIT_TOKEN}
           git push https://x-access-token:${GIT_TOKEN}@github.com//oriclibs/oriclibs.github.io.git
 
 
