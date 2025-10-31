@@ -18,9 +18,11 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
+  pull-requests: write      # 'write' access to pull requests
+
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -32,6 +34,7 @@ concurrency:
 defaults:
   run:
     shell: bash
+
 
 jobs:
 
@@ -48,6 +51,7 @@ jobs:
           pip install mkdocs-material
       - name: Checkout
         uses: actions/checkout@v4
+
         with:
           submodules: recursive
           GIT_TOKEN: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
