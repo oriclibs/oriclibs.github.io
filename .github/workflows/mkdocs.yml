@@ -77,7 +77,8 @@ jobs:
           git add .
           git commit -m "Mise à jour automatique via GitHub Actions"
           echo TOKEN ${GIT_TOKEN}
-          git push https://jedeoric:${GIT_TOKEN}@github.com//oriclibs/oriclibs.github.io.git
+          git push 
+          #https://jedeoric:${GIT_TOKEN}@github.com/oriclibs/oriclibs.github.io.git
 
 
 
