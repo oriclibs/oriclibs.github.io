@@ -9,6 +9,8 @@
 [:fontawesome-solid-arrow-right: ](netdblib/2024.4)
 -  __socket__ v2024.4
 [:fontawesome-solid-arrow-right: ](socket/2024.4)
+-  __inetlib__ v2025.1
+[:fontawesome-solid-arrow-right: ](inetlib/2025.1)
 -  __zx02__ v2025.4
 [:fontawesome-solid-arrow-right: ](zx02/2025.4)
 </div>
