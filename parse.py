@@ -16,7 +16,7 @@ def generate_index():
                 if os.path.isdir(os.path.join("docs", element))]
 
 
-    index = "# Welcome to the Oric Libraries repository!\n\n"
+    index = "# Welcome to the Orix repository!\n\n"
     index += "[Download bpm](https://orix-software.github.io/bpm/installation/){ .md-button }\n\n"
     index += "<div class=\"grid cards\" markdown>\n"
 
@@ -127,7 +127,7 @@ def add_indent_and_prefix(name, version, output_file):
         body = body + all_dependencies
         body = body + f"\n=== \"Dependencies\"\n"
         metadata = f"<h1>Metadata</h1><br><b>Version :</b> {version}<br><br><b>Install:</b><br><br>Add the following bpm command in your project directory:<br><p class=\"encadre\">bpm add {name}@{version}</p><br>"
-        metadata = metadata + f"<b>Documentation :</b> {documentation}<br><b>Repository : </b>{repository}<br><b>Authors:</b> {authors}"
+        metadata = metadata + f"<b>Documentation :</b> {documentation}<br><br><b>Repository : </b>{repository}<br><br><b>Authors:</b> {authors}"
         body = body + f"\n=== \"Dependents\"\n"
         outfile.write(f"#<div class=\"\"><div class=\"content-left\">{body}</div>\n<div class=\"content-right\">{metadata}\n</div>\n</div>\n")
 
