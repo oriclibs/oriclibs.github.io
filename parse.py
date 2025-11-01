@@ -57,9 +57,6 @@ def detar_gz(fichier_tgz, repertoire_destination):
 
     print(f"Fichier {fichier_tgz} décompressé dans {repertoire_destination}.")
 
-# Exemple d'utilisation
-fichier_tgz = "chemin/vers/ton_fichier.tgz"  # Remplace par le chemin de ton fichier
-repertoire_destination = "chemin/vers/le/repertoire/de/destination"  # Remplace par le chemin de destination
 
 def download_file(url, save_path):
     # Envoie une requête GET avec redirection automatique (comme -L dans curl)
@@ -106,12 +103,17 @@ def add_indent_and_prefix(name, version, output_file):
             description = package["description"]
         if "cpu" in package:
             cpu = package["cpu"]
+        repository = ""
         if "repository" in package:
             repository = package["repository"]
         if "documentation" in package:
             documentation = package["documentation"]
         if "homepage" in package:
             homepage = package["homepage"]
+        if "authors" in package:
+            authors = package["authors"]
+            for author in authors:
+                authors = author + ", "
         if "orix_minimal_kernel_version" in package:
             orix_minimal_kernel_version = package["orix_minimal_kernel_version"]
 
@@ -124,9 +126,10 @@ def add_indent_and_prefix(name, version, output_file):
         body = body + f"\n=== \"Versions\"\n"
         body = body + all_dependencies
         body = body + f"\n=== \"Dependencies\"\n"
-        metadata = f"<h1>Metadata</h1><br>* 8 days ago<br><br>v{version}<br>* MIT OR Apache-2.0<br>* 272 KiB<br><br><b>Install</b><br><br>un the following bpm command in your project directory:<br><p class=\"encadre\">bpm add {name}</p><br>Or add the following line to your bpm.tml:<br>ver = \"{version}\"<br>* Documentation<br>fixme<br>Repository<br>{repository}<br>Owners\FIXME<br>FIXME<br>Categories<br>FIXME<br>FIXME<br>"
+        metadata = f"<h1>Metadata</h1><br><b>Version :</b> {version}<br><br><b>Install:</b><br><br>Add the following bpm command in your project directory:<br><p class=\"encadre\">bpm add {name}@{version}</p><br>"
+        metadata = metadata + f"<b>Documentation :</b> {documentation}<br><b>Repository : </b>{repository}<br><b>Authors:</b> {authors}"
         body = body + f"\n=== \"Dependents\"\n"
-        outfile.write(f"#<div class=\"main-content\"><div class=\"content-left\">{body}</div>\n<div class=\"content-right\">{metadata}\n</div>\n</div>\n")
+        outfile.write(f"#<div class=\"\"><div class=\"content-left\">{body}</div>\n<div class=\"content-right\">{metadata}\n</div>\n</div>\n")
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
@@ -135,11 +138,12 @@ if __name__ == "__main__":
         name = sys.argv[1]
         version = sys.argv[2]
         skip_download = "False"
-        skip_repo_add = "True"
+        typepck = "lib"
         if sys.argv == 3:
             skip_download = sys.argv[3]
         if sys.argv == 4:
-            skip_repo_add= sys.argv[4]
+            typepck = sys.argv[4]
+
         # name_nolib=$(echo "${PCK_NAME}" | sed 's/lib$//')
         # mkdir tmp/
         print(f"http://repo.orix.oric.org/dists/{version}/tgz/6502/{name}.tgz")
@@ -153,45 +157,15 @@ if __name__ == "__main__":
             download_file(url, f"tmp/{name}.tgz")
             detar_gz(f"tmp/{name}.tgz", "tmp/")
 
-        # Save tml
-        if skip_repo_add == "False":
-            repo = Repo('.')
-            tml_path = f"tmp/etc/bpm/{name}/{version}/bpm.tml"
-            if not os.path.exists(tml_path):
-                repo.index.add([tml_path])
-            commit_message = f"Ajout du fichier {tml_path} via script Python"
-            repo.index.commit(commit_message)
 
-            # Push sur la branche main
-            origin = repo.remote(name="origin")
-            origin.push("main")
 
         os.makedirs(f"docs/{name}/{version}", exist_ok=True)
         add_indent_and_prefix(name, version, f"docs/{name}/{version}/index.md")
-        if skip_repo_add == "False":
-            repo = Repo('.')
-            markdown_path = f"docs/{name}/{version}/index.md"
-            if not os.path.exists(markdown_path):
-                repo.index.add([markdown_path])
-            commit_message = f"Ajout du fichier {markdown_path} via script Python"
-            repo.index.commit(commit_message)
 
-            # Push sur la branche main
-            origin = repo.remote(name="origin")
-            origin.push("main")
 
         generate_index()
 
-        if skip_repo_add == "False":
-            repo = Repo('.')
-            index_path = f"docs/index.md"
-            #repo.index.add([index_path])
-            commit_message = f"Ajout du fichier {index_path} via script Python"
-            repo.index.commit(commit_message)
 
-            # Push sur la branche main
-            origin = repo.remote(name="origin")
-            origin.push("main")
 
     else:
         print("Please provide a filename as an argument.")
