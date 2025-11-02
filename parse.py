@@ -89,6 +89,9 @@ def add_indent_and_prefix(name, version, output_file):
     input_file_bpm = f"tmp/etc/bpm//{name}/{version}/bpm.tml"
     print(f"tmp/etc/bpm//{name}/{version}/bpm.tml")
     metadata_toml = read_local_config_file(input_file_bpm)
+    if metadata_toml is None:
+        print(f"ERROR : No metadata toml found for this package {name} {version}.")
+        return
     all_dependencies = ""
     if "dependencies" in metadata_toml:
         dependencies = metadata_toml["dependencies"]
@@ -146,9 +149,7 @@ if __name__ == "__main__":
 
         # name_nolib=$(echo "${PCK_NAME}" | sed 's/lib$//')
         # mkdir tmp/
-        print(f"http://repo.orix.oric.org/dists/{version}/tgz/6502/{name}.tgz")
-        # curl -L http://repo.orix.oric.org/dists/${VERSION}/tgz/6502/${PCK_NAME}.tgz | tar -xz -C tmp/
-        #     # mkdir -p docs/${name_nolib}/${VERSION}/
+
         url = f"http://repo.orix.oric.org/dists/{version}/tgz/6502/{name}.tgz"
         os.makedirs(f"tml/{name}/{version}/", exist_ok=True)
         os.makedirs(f"tmp/", exist_ok=True)
@@ -165,7 +166,25 @@ if __name__ == "__main__":
 
         generate_index()
 
-
-
     else:
         print("Please provide a filename as an argument.")
+        contenu_docs = os.listdir("docs")
+        repertoires = [element for element in contenu_docs
+                    if os.path.isdir(os.path.join("docs", element))]
+
+        index = "# Welcome to the Orix repository!\n\n"
+        for repertoire in repertoires:
+            if repertoire != "theme":
+                sous_contenu_docs = os.listdir(f"docs/{repertoire}")
+                sous_repertoires = [element for element in sous_contenu_docs
+                            if os.path.isdir(os.path.join(f"docs/{repertoire}", element))]
+                for sous_repertoire in sous_repertoires:
+                    version = sous_repertoire
+                    name = repertoire
+                    url = f"http://repo.orix.oric.org/dists/{version}/tgz/6502/{name}.tgz"
+                    os.makedirs(f"tml/{name}/{version}/", exist_ok=True)
+                    os.makedirs(f"tmp/", exist_ok=True)
+                    save_path = f"docs/{name}/{version}/{name}.tgz"  # Nom du fichier local
+                    download_file(url, f"tmp/{name}.tgz")
+                    detar_gz(f"tmp/{name}.tgz", "tmp/")
+                    add_indent_and_prefix(name, version, f"docs/{name}/{version}/index.md")
