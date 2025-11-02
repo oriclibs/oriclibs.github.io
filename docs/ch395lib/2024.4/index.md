@@ -28,6 +28,6 @@ ch395 low hardware routines. Use socket lib for socket management under Orix
 
 === "Dependents"
 </div>
-<div class="content-right"><h1>Metadata</h1><br><b>Version :</b> 2024.4<br><br><b>Install:</b><br><br>Add the following bpm command in your project directory:<br><p class="encadre">bpm add ch395lib@2024.4</p><br><b>Documentation :</b> <br><b>Repository : </b><br><b>Authors:</b> nobody@nobody.fr, 
+<div class="content-right"><h1>Metadata</h1><br><b>Version :</b> 2024.4<br><br><b>Install:</b><br><br>Add the following bpm command in your project directory:<br><p class="encadre">bpm add ch395lib@2024.4</p><br><b>Documentation :</b> <br><br><b>Repository : </b><br><br><b>Authors:</b> nobody@nobody.fr, 
 </div>
 </div>
