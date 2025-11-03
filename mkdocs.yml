@@ -23,6 +23,9 @@ extra_css:
     - css/custom.css
 site_dir: public
 
+hide:
+  - navigation
+  - toc
 
 nav:
     - Homepage: index.md

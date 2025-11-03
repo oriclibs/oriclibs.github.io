@@ -4,7 +4,6 @@ import sys
 import toml
 import requests
 import os
-from git import Repo
 import tarfile
 
 
@@ -16,7 +15,7 @@ def generate_index():
                 if os.path.isdir(os.path.join("docs", element))]
 
 
-    index = "# Welcome to the Orix repository!\n\n"
+    index = "---\nhide:\n  - navigation\n  - toc\n---\n# Welcome to the Orix repository!\n\n"
     index += "[Download bpm](https://orix-software.github.io/bpm/installation/){ .md-button }\n\n"
     index += "<div class=\"grid cards\" markdown>\n"
 
@@ -96,9 +95,9 @@ def add_indent_and_prefix(name, version, output_file):
     if "dependencies" in metadata_toml:
         dependencies = metadata_toml["dependencies"]
         if len(dependencies) != 0:
-            all_dependencies = "=== \"Dependencies\"\n"
+
             for key, value in dependencies.items():
-                all_dependencies = all_dependencies + f"    {key} {value}"
+                all_dependencies = all_dependencies + f"    {key} {value}\n"
 
     if "package" in metadata_toml:
         package = metadata_toml["package"]
@@ -127,12 +126,12 @@ def add_indent_and_prefix(name, version, output_file):
             if not line.startswith("# "):
                 body = body + f"    {line}"
         body = body + f"\n=== \"Versions\"\n"
+        body = body + f"\n=== \"Dependencies\"\n\n"
         body = body + all_dependencies
-        body = body + f"\n=== \"Dependencies\"\n"
         metadata = f"<h1>Metadata</h1><br><b>Version :</b> {version}<br><br><b>Install:</b><br><br>Add the following bpm command in your project directory:<br><p class=\"encadre\">bpm add {name}@{version}</p><br>"
         metadata = metadata + f"<b>Documentation :</b> {documentation}<br><br><b>Repository : </b>{repository}<br><br><b>Authors:</b> {authors}"
         body = body + f"\n=== \"Dependents\"\n"
-        outfile.write(f"#<div class=\"\"><div class=\"content-left\">{body}</div>\n<div class=\"content-right\">{metadata}\n</div>\n</div>\n")
+        outfile.write(f"---\nhide:\n  - navigation\n  - toc\n---\n#<div class=\"\"><div class=\"content-left\">{body}</div>\n<div class=\"content-right\">{metadata}\n</div>\n</div>\n")
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
@@ -157,7 +156,6 @@ if __name__ == "__main__":
         if skip_download == "False":
             download_file(url, f"tmp/{name}.tgz")
             detar_gz(f"tmp/{name}.tgz", "tmp/")
-
 
 
         os.makedirs(f"docs/{name}/{version}", exist_ok=True)
@@ -188,3 +186,4 @@ if __name__ == "__main__":
                     download_file(url, f"tmp/{name}.tgz")
                     detar_gz(f"tmp/{name}.tgz", "tmp/")
                     add_indent_and_prefix(name, version, f"docs/{name}/{version}/index.md")
+        generate_index()
