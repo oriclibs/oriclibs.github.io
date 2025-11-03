@@ -65,7 +65,7 @@ def download_file(url, save_path):
         # Écrit le contenu dans un fichier
         with open(save_path, 'wb') as f:
             f.write(response.content)
-        print(f"Fichier téléchargé et enregistré sous {save_path}")
+        print(f"Downloading : {url} Fichier téléchargé et enregistré sous {save_path}")
     else:
         print(f"Erreur lors du téléchargement : {response.status_code}")
 
