@@ -22,6 +22,6 @@ Socket management
 
 === "Dependents"
 </div>
-<div class="content-right"><h1>Metadata</h1><br><b>Version :</b> 2025.2<br><br><b>Install:</b><br><br>Add the following bpm command in your project directory:<br><p class="encadre">bpm add socketlib@2025.2</p><br><b>Documentation :</b> https://orix-software.github.io/socketlib/api/<br><b>Repository : </b><br><b>Authors:</b> nobody@nobody.fr, 
+<div class="content-right"><h1>Metadata</h1><br><b>Version :</b> 2025.2<br><br><b>Install:</b><br><br>Add the following bpm command in your project directory:<br><p class="encadre">bpm add socketlib@2025.2</p><br><b>Documentation :</b> https://orix-software.github.io/socketlib/api/<br><br><b>Repository : </b><br><br><b>Authors:</b> nobody@nobody.fr, 
 </div>
 </div>
