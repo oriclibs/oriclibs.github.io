@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 #<div class=""><div class="content-left">zx02 2025.4
 zx02 compression management: dzx02 and zx02cat
 === "Readme"
@@ -6,6 +11,7 @@ zx02 compression management: dzx02 and zx02cat
 === "Versions"
 
 === "Dependencies"
+
 
 === "Dependents"
 </div>

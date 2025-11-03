@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 #<div class=""><div class="content-left">ch395lib 2024.4
 ch395 low hardware routines. Use socket lib for socket management under Orix
 === "Readme"
@@ -25,6 +30,7 @@ ch395 low hardware routines. Use socket lib for socket management under Orix
 === "Versions"
 
 === "Dependencies"
+
 
 === "Dependents"
 </div>

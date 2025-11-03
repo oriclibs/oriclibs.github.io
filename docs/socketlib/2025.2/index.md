@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 #<div class=""><div class="content-left">socketlib 2025.2
 Socket management
 === "Readme"
@@ -16,9 +21,11 @@ Socket management
     
 
 === "Versions"
+
 === "Dependencies"
-    inetlib 2024.4    ch395lib 2024.4
-=== "Dependencies"
+
+    inetlib 2024.4
+    ch395lib 2024.4
 
 === "Dependents"
 </div>
