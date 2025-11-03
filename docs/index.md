@@ -16,4 +16,6 @@ hide:
 [:fontawesome-solid-arrow-right: ](zx02/2025.4)
 -  __socketlib__ v2025.2
 [:fontawesome-solid-arrow-right: ](socketlib/2025.2)
+-  __socketlib__ v2025.4
+[:fontawesome-solid-arrow-right: ](socketlib/2025.4)
 </div>
