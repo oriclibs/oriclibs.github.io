@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 #<div class=""><div class="content-left">inetlib 2025.1
 Provide inet_aton
 === "Readme"
@@ -15,6 +20,7 @@ Provide inet_aton
 === "Versions"
 
 === "Dependencies"
+
 
 === "Dependents"
 </div>

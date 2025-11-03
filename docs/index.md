@@ -1,10 +1,13 @@
-# Welcome to the Oric Libraries repository!
+---
+hide:
+  - navigation
+  - toc
+---
+# Welcome to the Orix repository!
 
 [Download bpm](https://orix-software.github.io/bpm/installation/){ .md-button }
 
 <div class="grid cards" markdown>
--  __socket__ v2024.4
-[:fontawesome-solid-arrow-right: ](socket/2024.4)
 -  __inetlib__ v2025.1
 [:fontawesome-solid-arrow-right: ](inetlib/2025.1)
 -  __ch395lib__ v2024.4
