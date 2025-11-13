@@ -57,7 +57,7 @@ def detar_gz(fichier_tgz, repertoire_destination):
     print(f"Fichier {fichier_tgz} décompressé dans {repertoire_destination}.")
 
 
-def download_file(url, save_path):
+def download_file(url: str, save_path: str) -> int:
     # Envoie une requête GET avec redirection automatique (comme -L dans curl)
     response = requests.get(url, allow_redirects=True)
     # Vérifie si la requête a réussi
@@ -66,8 +66,10 @@ def download_file(url, save_path):
         with open(save_path, 'wb') as f:
             f.write(response.content)
         print(f"Downloading : {url} Fichier téléchargé et enregistré sous {save_path}")
+        return 0
     else:
         print(f"Erreur lors du téléchargement : {response.status_code}")
+        return 1
 
 def read_local_config_file(bpm_path):
     try:
@@ -154,8 +156,12 @@ if __name__ == "__main__":
         os.makedirs(f"tmp/", exist_ok=True)
         save_path = f"docs/{name}/{version}/{name}.tgz"  # Nom du fichier local
         if skip_download == "False":
-            download_file(url, f"tmp/{name}.tgz")
-            detar_gz(f"tmp/{name}.tgz", "tmp/")
+            val = download_file(url, f"tmp/{name}.tgz")
+            if val == 0:
+                detar_gz(f"tmp/{name}.tgz", "tmp/")
+            else:
+                print("Download failed, exiting.")
+                sys.exit(1)
 
 
         os.makedirs(f"docs/{name}/{version}", exist_ok=True)
