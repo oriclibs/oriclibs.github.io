@@ -16,7 +16,8 @@ def generate_index():
 
 
     repertoires = sorted([d for d in os.listdir("docs")
-                          if os.path.isdir(os.path.join("docs", d))])
+                          if os.path.isdir(os.path.join("docs", d))],
+                          reverse=True)
 
     index = "---\nhide:\n  - navigation\n  - toc\n---\n# Welcome to the Orix repository!\n\n"
     index += "[Download bpm](https://orix-software.github.io/bpm/installation/){ .md-button }\n\n"
@@ -30,7 +31,7 @@ def generate_index():
             sous_repertoires = [element for element in sous_contenu_docs
                         if os.path.isdir(os.path.join(f"docs/{repertoire}", element))]
             for sous_repertoire in sous_repertoires:
-                date_hours = "Unknown"
+                date_hours = "(Unknown)"
                 name = repertoire
                 version = sous_repertoire
                 try:
