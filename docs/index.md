@@ -11,9 +11,9 @@ hide:
 -  __zx02__ v2025.4
 (Unknown)
 [:fontawesome-solid-arrow-right: ](zx02/2025.4)
--  __socketlib__ v2025.2
+-  __socketlib__ v2025.4
 (Unknown)
-[:fontawesome-solid-arrow-right: ](socketlib/2025.2)
+[:fontawesome-solid-arrow-right: ](socketlib/2025.4)
 -  __inetlib__ v2025.1
 (Unknown)
 [:fontawesome-solid-arrow-right: ](inetlib/2025.1)
