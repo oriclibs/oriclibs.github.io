@@ -5,15 +5,18 @@ import toml
 import requests
 import os
 import tarfile
-
+from datetime import datetime
 
 def generate_index():
 
     chemin_docs = "docs"
     contenu_docs = os.listdir("docs")
-    repertoires = [element for element in contenu_docs
-                if os.path.isdir(os.path.join("docs", element))]
+    # repertoires = [element for element in contenu_docs
+    #             if os.path.isdir(os.path.join("docs", element))]
 
+
+    repertoires = sorted([d for d in os.listdir("docs")
+                          if os.path.isdir(os.path.join("docs", d))])
 
     index = "---\nhide:\n  - navigation\n  - toc\n---\n# Welcome to the Orix repository!\n\n"
     index += "[Download bpm](https://orix-software.github.io/bpm/installation/){ .md-button }\n\n"
@@ -23,16 +26,22 @@ def generate_index():
     for repertoire in repertoires:
         if repertoire != "theme":
             sous_contenu_docs = os.listdir(f"docs/{repertoire}")
+
             sous_repertoires = [element for element in sous_contenu_docs
                         if os.path.isdir(os.path.join(f"docs/{repertoire}", element))]
             for sous_repertoire in sous_repertoires:
                 #
-                index += f"-  __{repertoire}__ v{sous_repertoire}\n[:fontawesome-solid-arrow-right: ]({repertoire}/{sous_repertoire})\n"
+                name = repertoire
+                version = sous_repertoire
+                try:
+                    with open(f"docs/{name}/{version}/updated_date.txt", "r") as fichier:
+                        date_hours = fichier.read()
 
+                except FileNotFoundError:
+                    print("Le fichier 'date_heure.txt' n'existe pas.")
+                index += f"-  __{repertoire}__ v{sous_repertoire}\n{date_hours}\n[:fontawesome-solid-arrow-right: ]({repertoire}/{sous_repertoire})\n"
+                break
 
-    # index += "- __JavaScript__ for interactivity\n"
-    # index += "- __CSS__ for text running out of boxes\n"
-    # index += "-  __Internet Explorer__ ... huh?\n"
     index += "</div>"
     with open("docs/index.md", "w") as fichier:
         fichier.write(index)
@@ -85,7 +94,7 @@ def read_local_config_file(bpm_path):
 
 
 
-def add_indent_and_prefix(name, version, output_file):
+def add_indent_and_prefix(name, version, output_file, date_heure="Unknown"):
     input_file = f"tmp/usr/share/{name}/{version}/README.md"
     input_file_bpm = f"tmp/etc/bpm//{name}/{version}/bpm.tml"
     print(f"tmp/etc/bpm//{name}/{version}/bpm.tml")
@@ -164,8 +173,19 @@ if __name__ == "__main__":
                 sys.exit(1)
 
 
+        # Obtenir la date et l'heure actuelles
+        maintenant = datetime.now()
+
+        # Formater la date et l'heure
+        date_heure = maintenant.strftime("%Y-%m-%d %H:%M:%S")
+
         os.makedirs(f"docs/{name}/{version}", exist_ok=True)
-        add_indent_and_prefix(name, version, f"docs/{name}/{version}/index.md")
+        add_indent_and_prefix(name, version, f"docs/{name}/{version}/index.md", date_heure)
+
+
+        # Écrire dans un fichier
+        with open(f"docs/{name}/{version}/updated_date.txt", "w") as fichier:
+            fichier.write(date_heure)
 
 
         generate_index()
