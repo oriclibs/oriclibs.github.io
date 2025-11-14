@@ -28,8 +28,8 @@ def generate_index():
         if repertoire != "theme":
             sous_contenu_docs = os.listdir(f"docs/{repertoire}")
 
-            sous_repertoires = [element for element in sous_contenu_docs
-                        if os.path.isdir(os.path.join(f"docs/{repertoire}", element))]
+            sous_repertoires = sorted([element for element in sous_contenu_docs
+                        if os.path.isdir(os.path.join(f"docs/{repertoire}", element))], reverse=True)
             for sous_repertoire in sous_repertoires:
                 date_hours = "(Unknown)"
                 name = repertoire
