@@ -107,9 +107,16 @@ def add_indent_and_prefix(name, version, output_file, date_heure="Unknown"):
     if "dependencies" in metadata_toml:
         dependencies = metadata_toml["dependencies"]
         if len(dependencies) != 0:
-
             for key, value in dependencies.items():
-                all_dependencies = all_dependencies + f"    {key} {value}\n"
+                all_dependencies = all_dependencies + f"    !!! abstract \"[{key} {value}](../../{key}/{value} )\"\n"
+
+    all_versions = ""
+    repertoires = sorted([d for d in os.listdir(f"docs/{name}") if os.path.isdir(os.path.join(f"docs/{name}", d))], reverse=True)
+    for repertoire in repertoires:
+        print(f"ici {repertoire}")
+        if repertoire != version:
+            #[Lien vers le répertoire toto](../toto)
+            all_versions = all_versions + f"    !!! abstract \"[{name} : {repertoire}](../{repertoire})\"\n"
 
     if "package" in metadata_toml:
         package = metadata_toml["package"]
@@ -137,10 +144,10 @@ def add_indent_and_prefix(name, version, output_file, date_heure="Unknown"):
         for line in infile:
             if not line.startswith("# "):
                 body = body + f"    {line}"
-        body = body + f"\n=== \"Versions\"\n"
+        body = body + f"\n=== \"Versions\"\n\n{all_versions}"
         body = body + f"\n=== \"Dependencies\"\n\n"
         body = body + all_dependencies
-        metadata = f"<h1>Metadata</h1><br><b>Version :</b> {version}<br><br><b>Install:</b><br><br>Add the following bpm command in your project directory:<br><p class=\"encadre\">bpm add {name}@{version}</p><br>"
+        metadata = f"<h1>Metadata</h1><br><b>Version :</b> {version}<br><br><b>Install:</b><br><br><i>Orix</i><br>download tgz : http://repo.orix.oric.org/dists/{version}/tgz/6502/{name}.tgz<br><i><br><br>For development purposes:</i><br>Use the following bpm command in your project directory:<br><p class=\"encadre\">bpm add {name}@{version}</p><br>"
         metadata = metadata + f"<b>Documentation :</b> {documentation}<br><br><b>Repository : </b>{repository}<br><br><b>Authors:</b> {authors}"
         body = body + f"\n=== \"Dependents\"\n"
         outfile.write(f"---\nhide:\n  - navigation\n  - toc\n---\n#<div class=\"\"><div class=\"content-left\">{body}</div>\n<div class=\"content-right\">{metadata}\n</div>\n</div>\n")
