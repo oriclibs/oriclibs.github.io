@@ -147,12 +147,15 @@ def add_indent_and_prefix(name, version, output_file, date_heure="Unknown"):
             authors = package["authors"]
             for author in authors:
                 authors = author + ", "
+
         if "orix_minimal_kernel_version" in package:
             orix_minimal_kernel_version = package["orix_minimal_kernel_version"]
             if orix_minimal_kernel_version == "":
                 orix_minimal_kernel_version = "<b>Minimum kernel version required : </b> No minimal kernel version provided.<br>"
             else:
                 orix_minimal_kernel_version = f"<b>Minimum kernel version required : </b> {orix_minimal_kernel_version}><br>"
+        else:
+            orix_minimal_kernel_version = "<b>Minimum kernel version required : </b> No minimal kernel version provided.<br>"
 
     output_file = f"{output_file}"
     with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
