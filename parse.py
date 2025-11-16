@@ -149,6 +149,10 @@ def add_indent_and_prefix(name, version, output_file, date_heure="Unknown"):
                 authors = author + ", "
         if "orix_minimal_kernel_version" in package:
             orix_minimal_kernel_version = package["orix_minimal_kernel_version"]
+            if orix_minimal_kernel_version == "":
+                orix_minimal_kernel_version = "<b>Minimum kernel version required : </b> No minimal kernel version provided.<br>"
+            else:
+                orix_minimal_kernel_version = f"<b>Minimum kernel version required : </b> {orix_minimal_kernel_version}><br>"
 
     output_file = f"{output_file}"
     with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
@@ -160,7 +164,7 @@ def add_indent_and_prefix(name, version, output_file, date_heure="Unknown"):
         body = body + f"\n=== \"Dependencies\"\n\n"
         body = body + all_dependencies
         metadata = f"<h1>Metadata</h1><br><b>Version :</b> {version}<br><br><b>Install under Orix:</b><br><br><br>download tgz : [http://repo.orix.oric.org/dists/{version}/tgz/6502/{name}.tgz]({name}.tgz (v{version}))<br><i><br><br><b>Install as library (for development purposes)</b><br>Use the following bpm command in your project directory:<br><p class=\"encadre\">bpm add {name}@{version}</p><br>"
-        metadata = metadata + f"<b>Documentation :</b> {documentation}<br><br><b>Repository : </b>{repository}<br><br><b>Authors:</b> {authors}"
+        metadata = metadata + f"<b>Documentation :</b> {documentation}<br><br><b>Repository : </b>{repository}<br><br><b>Authors:</b> {authors}<br>{orix_minimal_kernel_version}"
         body = body + f"\n=== \"Dependents\"\n"
         outfile.write(f"---\nhide:\n  - navigation\n  - toc\n---\n#<div class=\"\"><div class=\"content-left\">{body}</div>\n<div class=\"content-right\">{metadata}\n</div>\n</div>\n")
 
