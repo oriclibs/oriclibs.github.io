@@ -31,6 +31,6 @@ banking management https://orix-software.github.io/bms/api/
 
 === "Dependents"
 </div>
-<div class="content-right"><h1>Metadata</h1><br><b>Version :</b> 2025.4<br><br><b>Install:</b><br><br><i>Orix</i><br>download tgz : http://repo.orix.oric.org/dists/2025.4/tgz/6502/bms.tgz<br><i><br><br>Install as library (for development purposes):</i><br>Use the following bpm command in your project directory:<br><p class="encadre">bpm add bms@2025.4</p><br><b>Documentation :</b> https://orix-software.github.io/bms/<br><br><b>Repository : </b>https://github.com/orix-software/bms<br><br><b>Authors:</b> jede, 
+<div class="content-right"><h1>Metadata</h1><br><b>Version :</b> 2025.4<br><br><b>Install under Orix:</b><br><br><br>download tgz : [http://repo.orix.oric.org/dists/2025.4/tgz/6502/bms.tgz](bms.tgz (v2025.4))<br><i><br><br><b>Install as library (for development purposes)</b><br>Use the following bpm command in your project directory:<br><p class="encadre">bpm add bms@2025.4</p><br><b>Documentation :</b> [https://orix-software.github.io/bms/](https://orix-software.github.io/bms/)<br><br><b>Repository : </b>[https://github.com/orix-software/bms](https://github.com/orix-software/bms)<br><br><b>Authors:</b> jede, 
 </div>
 </div>
