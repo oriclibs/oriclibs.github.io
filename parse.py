@@ -31,7 +31,7 @@ def generate_index():
             sous_repertoires = sorted([element for element in sous_contenu_docs
                         if os.path.isdir(os.path.join(f"docs/{repertoire}", element))], reverse=True)
             for sous_repertoire in sous_repertoires:
-                date_hours = "(Unknown)"
+                date_hours = "Unknown"
                 name = repertoire
                 version = sous_repertoire
                 try:
@@ -40,7 +40,7 @@ def generate_index():
 
                 except FileNotFoundError:
                     print(f"docs/{name}/{version}/updated_date.txt not found")
-                index += f"-  __{repertoire}__ v{sous_repertoire}\n{date_hours}\n[:fontawesome-solid-arrow-right: ]({repertoire}/{sous_repertoire})\n"
+                index += f"-  __{repertoire}__ v{sous_repertoire}\n<br>Released date :{date_hours}\n[:fontawesome-solid-arrow-right: ]({repertoire}/{sous_repertoire})\n"
                 break
 
     index += "</div>"
