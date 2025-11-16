@@ -22,13 +22,15 @@ Socket management
 
 === "Versions"
 
+    !!! abstract "[socketlib : 2025.4](../2025.4)"
+
 === "Dependencies"
 
-    inetlib 2024.4
-    ch395lib 2024.4
+    !!! abstract "[inetlib 2024.4](../../inetlib/2024.4 )"
+    !!! abstract "[ch395lib 2024.4](../../ch395lib/2024.4 )"
 
 === "Dependents"
 </div>
-<div class="content-right"><h1>Metadata</h1><br><b>Version :</b> 2025.2<br><br><b>Install:</b><br><br>Add the following bpm command in your project directory:<br><p class="encadre">bpm add socketlib@2025.2</p><br><b>Documentation :</b> https://orix-software.github.io/socketlib/api/<br><br><b>Repository : </b><br><br><b>Authors:</b> nobody@nobody.fr, 
+<div class="content-right"><h1>Metadata</h1><br><b>Version :</b> 2025.2<br><br><b>Install:</b><br><br><i>Orix</i><br>download tgz : http://repo.orix.oric.org/dists/2025.2/tgz/6502/socketlib.tgz<br><i><br><br>For development purposes:</i><br>Use the following bpm command in your project directory:<br><p class="encadre">bpm add socketlib@2025.2</p><br><b>Documentation :</b> https://orix-software.github.io/socketlib/api/<br><br><b>Repository : </b><br><br><b>Authors:</b> nobody@nobody.fr, 
 </div>
 </div>
