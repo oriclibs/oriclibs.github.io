@@ -20,7 +20,9 @@ def generate_index():
                           reverse=True)
 
     index = "---\nhide:\n  - navigation\n  - toc\n---\n# Welcome to the Orix repository!\n\n"
-    index += "[Download bpm](https://orix-software.github.io/bpm/installation/){ .md-button }\n\n"
+    index += "[Download bpm (for pc cross dev)](https://orix-software.github.io/bpm/installation/){ .md-button }\n\n"
+    index += "[Download bpm (for pc cross dev)](https://orix-software.github.io/bpm/installation/){ .md-button }\n\n"
+    index += "[Bpm documentation (for pc cross dev)](https://orix-software.github.io/bpm/){ .md-button }\n\n"
     index += "<div class=\"grid cards\" markdown>\n"
 
 
@@ -166,8 +168,8 @@ def add_indent_and_prefix(name, version, output_file, date_heure="Unknown"):
         body = body + f"\n=== \"Versions\"\n\n{all_versions}"
         body = body + f"\n=== \"Dependencies\"\n\n"
         body = body + all_dependencies
-        metadata = f"<h1>Metadata</h1><br><b>Version :</b> {version}<br><br><b>Install under Orix:</b><br><br>download tgz : <a href=http://repo.orix.oric.org/dists/{version}/tgz/6502/{name}.tgz>{name}.tgz v{version})</a><br><i><br><br><b>Install as library (for development purposes)</b><br>Use the following bpm command in your project directory:<br><p class=\"encadre\">bpm add {name}@{version}</p><br>"
-        metadata = metadata + f"<b>Documentation :</b> {documentation}<br><br><b>Repository : </b>{repository}<br><br><b>Authors:</b> {authors}<br>{orix_minimal_kernel_version}"
+        metadata = f"<h1>Metadata</h1><br><b>Version :</b> {version}<br><br><b>Install under Orix:</b><br><br>download tgz : <a href=http://repo.orix.oric.org/dists/{version}/tgz/6502/{name}.tgz>{name}.tgz v{version})</a><br><i><br><br><b>Install as library (for development purposes)</b><br><br>Use the following bpm command in your project directory:<br><p class=\"encadre\">bpm add {name}@{version}</p><br>"
+        metadata = metadata + f"<b>Documentation :</b> {documentation}<br><br><b>Repository : </b>{repository}<br><br><b>Authors:</b> {authors}<br><br>{orix_minimal_kernel_version}"
         body = body + f"\n=== \"Dependents\"\n"
         outfile.write(f"---\nhide:\n  - navigation\n  - toc\n---\n#<div class=\"\"><div class=\"content-left\">{body}</div>\n<div class=\"content-right\">{metadata}\n</div>\n</div>\n")
 
