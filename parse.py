@@ -130,13 +130,13 @@ def add_indent_and_prefix(name, version, output_file, date_heure="Unknown"):
             if repository == "":
                 repository = "No repository provided."
             else:
-                repository = f"<a href={repository}>{repository}</a>"
+                repository = f"<a href={repository} class=tabbed-block>{repository}</a>"
         if "documentation" in package:
             documentation = package["documentation"]
             if documentation == "":
                 documentation = "No documentation provided."
             else:
-                documentation = f"<a href={documentation}>{documentation}</a>"
+                documentation = f"<a href={documentation} class=tabbed-block>{documentation}</a>"
         if "homepage" in package:
             homepage = package["homepage"]
             if homepage == "":
@@ -151,11 +151,11 @@ def add_indent_and_prefix(name, version, output_file, date_heure="Unknown"):
         if "orix_minimal_kernel_version" in package:
             orix_minimal_kernel_version = package["orix_minimal_kernel_version"]
             if orix_minimal_kernel_version == "":
-                orix_minimal_kernel_version = "<b>Minimum kernel version required : </b> No minimal kernel version provided.<br>"
+                orix_minimal_kernel_version = "<br><b>Minimum kernel version required : </b> No minimal kernel version provided.<br>"
             else:
-                orix_minimal_kernel_version = f"<b>Minimum kernel version required : </b> {orix_minimal_kernel_version}><br>"
+                orix_minimal_kernel_version = f"<br><b>Minimum kernel version required : </b> {orix_minimal_kernel_version}<br>"
         else:
-            orix_minimal_kernel_version = "<b>Minimum kernel version required : </b> No minimal kernel version provided.<br>"
+            orix_minimal_kernel_version = "<br><b>Minimum kernel version required : </b> No minimal kernel version provided.<br>"
 
     output_file = f"{output_file}"
     with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
