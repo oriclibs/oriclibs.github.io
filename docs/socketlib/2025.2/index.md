@@ -31,6 +31,6 @@ Socket management
 
 === "Dependents"
 </div>
-<div class="content-right"><h1>Metadata</h1><br><b>Version :</b> 2025.2<br><br><b>Install under Orix:</b><br><br>download tgz : <a href=http://repo.orix.oric.org/dists/2025.2/tgz/6502/socketlib.tgz>socketlib.tgz v2025.2)</a><br><i><br><br><b>Install as library (for development purposes)</b><br><br>Use the following bpm command in your project directory:<br><p class="encadre">bpm add socketlib@2025.2</p><br><b>Documentation :</b> <a href=https://orix-software.github.io/socketlib/api/ class=tabbed-block>https://orix-software.github.io/socketlib/api/</a><br><br><b>Repository : </b>No repository provided.<br><br><b>Authors:</b> nobody@nobody.fr, <br><br><br><b>Minimum kernel version required : </b> No minimal kernel version provided.<br>
+<div class="content-right"><h1>Metadata</h1><br><b>Version :</b> 2025.2<br><br><b>Install under Orix:</b><br><br>download tgz : <a href=http://repo.orix.oric.org/dists/2025.2/tgz/6502/socketlib.tgz class=md-typeset>socketlib.tgz v2025.2</a><br><i><br><br><b>Install as library (for development purposes)</b><br><br>Use the following bpm command in your project directory:<br><p class="encadre">bpm add socketlib@2025.2</p><br><b>Documentation :</b> <a href=https://orix-software.github.io/socketlib/api/ class=md-typeset>https://orix-software.github.io/socketlib/api/</a><br><br><b>Repository : </b>No repository provided.<br><br><b>Authors:</b> nobody@nobody.fr, <br><br><b>Minimum kernel version required : </b> No minimal kernel version provided.<br>
 </div>
 </div>
