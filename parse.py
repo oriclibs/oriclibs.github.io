@@ -15,14 +15,14 @@ def generate_index():
     #             if os.path.isdir(os.path.join("docs", element))]
 
 
-    repertoires = sorted([d for d in os.listdir("docs")
-                          if os.path.isdir(os.path.join("docs", d))],
+    repertoires = sorted([d for d in os.listdir(chemin_docs)
+                          if os.path.isdir(os.path.join(chemin_docs, d))],
                           reverse=True)
 
     index = "---\nhide:\n  - navigation\n  - toc\n---\n# Welcome to the Orix repository!\n\n"
     index += "[Download bpm (for pc cross dev)](https://orix-software.github.io/bpm/installation/){ .md-button } "
     index += "[Download bpm (for pc cross dev)](https://orix-software.github.io/bpm/installation/){ .md-button } "
-    index += "[Bpm documentation (for pc cross dev)](https://orix-software.github.io/bpm/){ .md-button } "
+    index += "[Bpm documentation (for pc cross dev)](https://orix-software.github.io/bpm/){ .md-button }\n\n"
     index += "<div class=\"grid cards\" markdown>\n"
 
 
