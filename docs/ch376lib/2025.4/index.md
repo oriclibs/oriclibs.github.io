@@ -4,7 +4,7 @@ hide:
   - toc
 ---
 #<div class=""><div class="content-left">ch376lib 2025.4
-banking management https://orix-software.github.io/ch376lib/api/
+ch376 management https://orix-software.github.io/ch376lib/api/
 === "Readme"
     [![build](https://github.com/orix-software/ch376lib/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/orix-software/ch376lib/actions/workflows/main.yml)
     
