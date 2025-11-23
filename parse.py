@@ -21,7 +21,6 @@ def generate_index():
 
     index = "---\nhide:\n  - navigation\n  - toc\n---\n# Welcome to the Orix repository!\n\n"
     index += "[Download bpm (for pc cross dev)](https://orix-software.github.io/bpm/installation/){ .md-button } "
-    index += "[Download bpm (for pc cross dev)](https://orix-software.github.io/bpm/installation/){ .md-button } "
     index += "[Bpm documentation (for pc cross dev)](https://orix-software.github.io/bpm/){ .md-button }\n\n"
     index += "<div class=\"grid cards\" markdown>\n"
 
