@@ -19,7 +19,6 @@ ch376 management https://orix-software.github.io/ch376lib/api/
 
 === "Dependencies"
 
-    !!! abstract "[orixsdk 2023.3](../../orixsdk/2023.3 )"
 
 === "Dependents"
 </div>
