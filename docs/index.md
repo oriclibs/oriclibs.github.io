@@ -5,7 +5,7 @@ hide:
 ---
 # Welcome to the Orix repository!
 
-[Download bpm (for pc cross dev)](https://orix-software.github.io/bpm/installation/){ .md-button } [Download bpm (for pc cross dev)](https://orix-software.github.io/bpm/installation/){ .md-button } [Bpm documentation (for pc cross dev)](https://orix-software.github.io/bpm/){ .md-button }
+[Download bpm (for pc cross dev)](https://orix-software.github.io/bpm/installation/){ .md-button } [Bpm documentation (for pc cross dev)](https://orix-software.github.io/bpm/){ .md-button }
 
 <div class="grid cards" markdown>
 -  __zx02__ v2025.4
