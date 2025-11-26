@@ -20,10 +20,10 @@ hide:
 -  __ch395lib__ v2024.4
 <br>Released date : Unknown
 [:fontawesome-solid-arrow-right: ](ch395lib/2024.4)
+-  __ch376lib__ v2025.4
+<br>Released date : 2025-11-23 21:14:18
+[:fontawesome-solid-arrow-right: ](ch376lib/2025.4)
 -  __bmslib__ v2025.4
-<br>Released date : 2025-11-20 22:40:08
+<br>Released date : 2025-11-21 17:58:32
 [:fontawesome-solid-arrow-right: ](bmslib/2025.4)
--  __bms__ v2025.4
-<br>Released date : 2025-11-16 09:58:02
-[:fontawesome-solid-arrow-right: ](bms/2025.4)
 </div>
