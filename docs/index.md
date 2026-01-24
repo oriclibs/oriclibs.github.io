@@ -20,6 +20,9 @@ hide:
 -  __inetlib__ v2025.1
 <br>Released date : Unknown
 [:fontawesome-solid-arrow-right: ](inetlib/2025.1)
+-  __curl__ v2026.1
+<br>Released date : 2026-01-24 22:46:15
+[:fontawesome-solid-arrow-right: ](curl/2026.1)
 -  __ch395lib__ v2024.4
 <br>Released date : Unknown
 [:fontawesome-solid-arrow-right: ](ch395lib/2024.4)
