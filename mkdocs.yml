@@ -8,7 +8,7 @@ theme:
       - search
       - search.highlight
       - content.tabs.link
-      - fontawesome
+#      - fontawesome
 
 markdown_extensions:
   - pymdownx.superfences
