@@ -189,45 +189,72 @@ if __name__ == "__main__":
         print(sys.argv[2])
         name = sys.argv[1]
         version = sys.argv[2]
+        pck_version = sys.argv[3]
         skip_download = "False"
         typepck = "lib"
-        if sys.argv == 3:
-            skip_download = sys.argv[3]
+
         if sys.argv == 4:
-            typepck = sys.argv[4]
+            skip_download = sys.argv[4]
+
+        if sys.argv == 5:
+            typepck = sys.argv[5]
 
         # name_nolib=$(echo "${PCK_NAME}" | sed 's/lib$//')
         # mkdir tmp/
 
-        url = f"http://repo.orix.oric.org/dists/{version}/tgz/6502/{name}.tgz"
-        os.makedirs(f"tml/{name}/{version}/", exist_ok=True)
-        os.makedirs(f"tmp/", exist_ok=True)
-        save_path = f"docs/{name}/{version}/{name}.tgz"  # Nom du fichier local
-        if skip_download == "False":
-            val = download_file(url, f"tmp/{name}.tgz")
-            if val == 0:
-                detar_gz(f"tmp/{name}.tgz", "tmp/")
+        tml_dir = f"tml/{name}/{version}/"
+        #save_path = f"docs/{name}/{version}/{name}.tgz"  # Nom du fichier local
+        doc_dir = f"docs/{name}/{version}"
+
+        if pck_version == "delete":
+            print(f"Deleting package {name} version {version}...")
+            if os.path.exists(tml_dir):
+                import shutil
+                shutil.rmtree(tml_dir)
+
             else:
-                print("Download failed, exiting.")
-                sys.exit(1)
+                print(f"Package {name} version {version} does not exist.")
+
+            if os.path.exists(doc_dir):
+                import shutil
+                shutil.rmtree(doc_dir)
+                print(f"Package {name} version {version} deleted.")
+
+            else:
+                print(f"Package {name} version {version} does not exist.")
+
+            generate_index()
+
+        else:
+            url = f"http://repo.orix.oric.org/dists/{version}/tgz/6502/{name}.tgz"
+            os.makedirs(tml_dir, exist_ok=True)
+            os.makedirs(f"tmp/", exist_ok=True)
+
+            if skip_download == "False":
+                val = download_file(url, f"tmp/{name}.tgz")
+                if val == 0:
+                    detar_gz(f"tmp/{name}.tgz", "tmp/")
+                else:
+                    print("Download failed, exiting.")
+                    sys.exit(1)
 
 
-        # Obtenir la date et l'heure actuelles
-        maintenant = datetime.now()
+            # Obtenir la date et l'heure actuelles
+            maintenant = datetime.now()
 
-        # Formater la date et l'heure
-        date_heure = maintenant.strftime("%Y-%m-%d %H:%M:%S")
+            # Formater la date et l'heure
+            date_heure = maintenant.strftime("%Y-%m-%d %H:%M:%S")
 
-        os.makedirs(f"docs/{name}/{version}", exist_ok=True)
-        add_indent_and_prefix(name, version, f"docs/{name}/{version}/index.md", date_heure)
-
-
-        # Écrire dans un fichier
-        with open(f"docs/{name}/{version}/updated_date.txt", "w") as fichier:
-            fichier.write(date_heure)
+            os.makedirs(doc_dir, exist_ok=True)
+            add_indent_and_prefix(name, version, f"{doc_dir}/index.md", date_heure)
 
 
-        generate_index()
+            # Écrire dans un fichier
+            with open(f"{doc_dir}/updated_date.txt", "w") as fichier:
+                fichier.write(date_heure)
+
+
+            generate_index()
 
     else:
         print("Please provide a filename as an argument.")

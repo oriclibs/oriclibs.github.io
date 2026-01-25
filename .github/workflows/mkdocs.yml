@@ -62,11 +62,12 @@ jobs:
         env:
           VERSION: ${{ github.event.inputs.version }}
           PCK_NAME: ${{ github.event.inputs.pck_name }}
+          PCK_ACTION: ${{ github.event.inputs.pck_action }}
         run: |
           ls -l
           pip install toml
           pip install requests
-          python3 parse.py ${PCK_NAME} ${VERSION}
+          python3 parse.py ${PCK_NAME} ${VERSION} ${PCK_ACTION}
           mkdocs --version
           mkdocs build
 
@@ -81,7 +82,7 @@ jobs:
           git commit -m "Mise à jour automatique via GitHub Actions"
           echo TOKEN ${GIT_TOKEN}
           export GITHUB_TOKEN=${GIT_TOKEN}
-          git push 
+          git push
           #https://jedeoric:${GIT_TOKEN}@github.com/oriclibs/oriclibs.github.io.git
 
 
