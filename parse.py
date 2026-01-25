@@ -145,9 +145,9 @@ def add_indent_and_prefix(name, version, output_file, date_heure="Unknown"):
         if "rom_compatible" in package:
             rom_compatible = package["rom_compatible"]
             if rom_compatible == "True":
-                icon_rom = ":fontawesome-regular-check:{ .star }"
+                icon_rom = "<i class=\"fa-regular fa-check\"></i>"
             else:
-                icon_rom = ":fontawesome-regular-xmark:{ .star }"
+                icon_rom = "<i class=\"fa-regular fa-xmark\"></i>"
 
         if "homepage" in package:
             homepage = package["homepage"]
@@ -180,7 +180,7 @@ def add_indent_and_prefix(name, version, output_file, date_heure="Unknown"):
         body = body + f"\n=== \"Dependencies\"\n\n"
         body = body + all_dependencies
         metadata = f"<h1>Metadata</h1><br><b>Version :</b> {version}<br><br><b>Install under Orix:</b><br><br>download tgz : <a href=http://repo.orix.oric.org/dists/{version}/tgz/6502/{name}.tgz class=md-typeset color=#4051b5>{name}.tgz v{version}</a><br><i><br><br><b>Install as library (for development purposes)</b><br><br>Use the following bpm command in your project directory:<br><p class=\"encadre\">bpm add {name}@{version}</p><br>"
-        metadata = metadata + f"<b>Documentation :</b> {documentation}<br><br><b>Repository : </b>{repository}<br><br>Can be loaded into readonly bank : {icon_rom}<br><br><b>Authors:</b> {authors}<br>{orix_minimal_kernel_version}"
+        metadata = metadata + f"<b>Documentation :</b> {documentation}<br><br><b>Repository : </b>{repository}<br><br><b>Readonly bank compatible:</b> {icon_rom}<br><br><b>Authors:</b> {authors}<br>{orix_minimal_kernel_version}"
         body = body + f"\n=== \"Dependents\"\n"
         outfile.write(f"---\nhide:\n  - navigation\n  - toc\n---\n#<div class=\"\"><div class=\"content-left\">{body}</div>\n<div class=\"content-right\">{metadata}\n</div>\n</div>\n")
 
