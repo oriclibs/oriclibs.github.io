@@ -141,6 +141,7 @@ def add_indent_and_prefix(name, version, output_file, date_heure="Unknown"):
                 documentation = f"<a href={documentation} class=md-typeset color=#4051b5>{documentation}</a>"
 
         rom_compatible = ""
+        icon_rom = ""
         if "rom_compatible" in package:
             rom_compatible = package["rom_compatible"]
             if rom_compatible == "True":
